@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1687364119 source:e:\codeblocksapps\1\testptconcurs1\main.cpp
+	<iostream>
+	<cstdlib>
+	<stdlib.h>
+	<time.h>
+

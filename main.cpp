@@ -111,7 +111,13 @@ int main(int argc, const char * argv[]) {
     int isWin = 0;
     int a[8][8] = { 0 };
     char x;
+    cout << "Pentru a juca, introduceti 1" << endl;
+    cout << "Pentru admin introduceti parola:";
     cin >> ADMIN;
+    cout << endl;
+    generare(a);
+    generare(a);
+    generare(a);
     generare(a);
 
 

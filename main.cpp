@@ -7,8 +7,7 @@
 
 #include <iostream>
 #include <cstdlib>
-#include <stdlib.h>
-#include <time.h>
+#include <ctime>
 using namespace std;
 
 
@@ -58,6 +57,7 @@ bool Debug(int v[8][8]){
 
 
 int generare(int a[8][8]){
+    srand(static_cast<unsigned int>(time(nullptr)));///asta am vazut ca trebuie inclusa pentru ca nr generate sa depinda de timp si sa fie mereu diferite
      int b1 = rand() % 8 + 1;
      int b2 = rand() % 8 + 1;
      int dir = rand() % 4 + 1;
@@ -95,6 +95,7 @@ int generare(int a[8][8]){
             }
         }
      }
+     return 3.1415926535; ///modul meu de a arata ca e o eroare ceva... nu ca s-a intamplat dar hey
 }
 
 /*

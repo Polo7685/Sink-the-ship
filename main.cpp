@@ -10,10 +10,11 @@
 #include <stdlib.h>
 #include <time.h>
 using namespace std;
-// Salut
 
 
 
+string verificare = "ADMIN";
+string ADMIN;
 bool Debug(int v[8][8]){
     char letters[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
         int numbers[] = {0, 1, 2, 3, 4, 5, 6, 7};
@@ -29,10 +30,20 @@ bool Debug(int v[8][8]){
         for (int row = 0; row < 8; row++) {
             std::cout << numbers[row] << " ";
             for (int col = 0; col < 8; col++) {
-                if(v[row][col] == 10 || v[row][col] == 4)
-                    cout << 0 << "  ";
-                else
+                if(ADMIN == verificare){
+                if(v[row][col] == 10 || v[row][col] == 4){
+                    cout << 0 << "  ";}
+                else{
                 std::cout << v[row][col] << "  "; // completare cu "."
+                }
+                }
+                else{
+                if(v[row][col] == 1 || v[row][col] == 4){
+                    cout << 0 << "  ";}
+                else{
+                std::cout << v[row][col] << "  "; // completare cu "."
+                }
+                }
             }
             std::cout << std::endl;
         }
@@ -51,7 +62,7 @@ int generare(int a[8][8]){
      int b2 = rand() % 8 + 1;
      int dir = rand() % 4 + 1;
      int b1nou, b2nou;
-     a[b1][b2] = 5;
+     a[b1][b2] = 1;
      for(int i = 1; i <= 4; i++){
         switch(dir){
         case 0:{
@@ -99,7 +110,7 @@ int main(int argc, const char * argv[]) {
     int isWin = 0;
     int a[8][8] = { 0 };
     char x;
-
+    cin >> ADMIN;
     generare(a);
 
 

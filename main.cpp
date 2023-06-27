@@ -54,10 +54,10 @@ bool Debug(int v[8][8]){
 /// 2 lovita
 /// 3 ratare
 /// 4 CAP
-
+int numar;
 
 int generare(int a[8][8]){
-    srand(static_cast<unsigned int>(time(nullptr)));///asta am vazut ca trebuie inclusa pentru ca nr generate sa depinda de timp si sa fie mereu diferite
+    ///srand(static_cast<unsigned int>(time(nullptr)));///asta am vazut ca trebuie inclusa pentru ca nr generate sa depinda de timp si sa fie mereu diferite
      int b1 = rand() % 8 + 1;
      int b2 = rand() % 8 + 1;
      int dir = rand() % 4 + 1;
@@ -65,32 +65,54 @@ int generare(int a[8][8]){
      a[b1][b2] = 1;
      for(int i = 1; i <= 4; i++){
         switch(dir){
-        case 0:{
-            dir = 1;
-            for(b1nou = 3; b1nou >= 1; b1nou--){
-                a[b1nou][b2] = 1;
-            }
-            break;
-            }
         case 1:{
-            dir = 2;
-            for(b2nou = 3; b2nou >= 1; b2nou--){
-                a[b1][b2nou] = 1;
+            for(b1nou = 3; b1nou >= 1; b1nou--){
+            if(a[b1nou][b2] == 0){ numar++;}
             }
-            break;
-            }
-        case 2:{
-            dir = 3;
-            for(b1nou = 1; b1nou <= 3; b1nou++){
+            if(numar >= 3){
+                for(b1nou = 3; b1nou >= 1; b1nou--){
                 a[b1nou][b2] = 1;
-            }
+            }}
+            else{break;}
+            numar = 0;
             break;
             }
-        case 3:{
-            dir = 4;
-            for(b2nou = 1; b2nou <= 3; b2nou++){
-                a[b1][b2nou] = 1;
+
+        case 2:{
+            for(b2nou = 3; b2nou >= 1; b2nou--){
+                    if(a[b1][b2nou] == 0){ numar++;}
             }
+            if(numar >= 3){
+                for(b2nou = 3; b2nou >= 1; b2nou--){
+                a[b1][b2nou] = 1;
+            }}
+            else{break;}
+            numar = 0;
+            break;
+            }
+
+        case 3:{
+            for(b1nou = 1; b1nou <= 3; b1nou++){
+                    if(a[b1nou][b2] == 0){ numar++;}
+            }
+            if(numar >= 3){
+                for(b1nou = 1; b1nou <= 3; b1nou++){
+                a[b1nou][b2] = 1;
+            }}
+            else{break;}
+            numar = 0;
+            break;
+            }
+        case 4:{
+            for(b2nou = 1; b2nou <= 3; b2nou++){
+                    if(a[b1][b2nou] == 0){ numar++;}
+            }
+            if(numar >= 3){
+                for(b2nou = 1; b2nou <= 3; b2nou++){
+                a[b1][b2nou] = 1;
+            }}
+            else{break;}
+            numar = 0;
             break;
             }
         }
